@@ -1,39 +1,48 @@
-import { createSlice } from "@reduxjs/toolkit";
+import React from "react";
 
-const cartSlice = createSlice({
-  name: "cart",
+const plants = [
 
-  initialState: {
-    items: []
-  },
+{ id:1, name:"Snake Plant", price:15, category:"Indoor", img:"https://i.imgur.com/1.jpg" },
+{ id:2, name:"Aloe Vera", price:10, category:"Indoor", img:"https://i.imgur.com/2.jpg" },
 
-  reducers: {
-    addItem: (state, action) => {
-      const item = state.items.find(p => p.id === action.payload.id)
+{ id:3, name:"Peace Lily", price:20, category:"Flowering", img:"https://i.imgur.com/3.jpg" },
+{ id:4, name:"Orchid", price:25, category:"Flowering", img:"https://i.imgur.com/4.jpg" },
 
-      if (item) {
-        item.quantity += 1
-      } else {
-        state.items.push({ ...action.payload, quantity: 1 })
-      }
-    },
+{ id:5, name:"Money Plant", price:18, category:"Air Purifying", img:"https://i.imgur.com/5.jpg" },
+{ id:6, name:"Spider Plant", price:12, category:"Air Purifying", img:"https://i.imgur.com/6.jpg" }
 
-    removeItem: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload)
-    },
+];
 
-    increaseQty: (state, action) => {
-      const item = state.items.find(p => p.id === action.payload)
-      if (item) item.quantity += 1
-    },
+function ProductList() {
 
-    decreaseQty: (state, action) => {
-      const item = state.items.find(p => p.id === action.payload)
-      if (item && item.quantity > 1) item.quantity -= 1
-    }
-  }
-})
+return (
 
-export const { addItem, removeItem, increaseQty, decreaseQty } = cartSlice.actions
+<div style={{padding:"40px"}}>
 
-export default cartSlice.reducer
+<h2>Our Plants</h2>
+
+{plants.map(plant => (
+
+<div key={plant.id} style={{border:"1px solid gray",margin:"20px",padding:"10px"}}>
+
+<img src={plant.img} width="120" />
+
+<h3>{plant.name}</h3>
+
+<p>Category: {plant.category}</p>
+
+<p>Price: ${plant.price}</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+))}
+
+</div>
+
+)
+
+}
+
+export default ProductList
