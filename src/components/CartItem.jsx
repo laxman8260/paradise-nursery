@@ -1,29 +1,41 @@
 import React from "react";
 
-function CartItem() {
-  return (
-    <div style={{ padding: "40px", textAlign: "center" }}>
-      <h2>Shopping Cart</h2>
+function CartItem(){
 
-      <div style={{ margin: "20px" }}>
-        <h3>Snake Plant</h3>
-        <p>Unit Price: $15</p>
+return(
 
-        <button>+</button>
-        <span style={{ margin: "10px" }}>1</span>
-        <button>-</button>
+<div style={{padding:"40px"}}>
 
-        <br /><br />
+<h2>Shopping Cart</h2>
 
-        <button>Delete</button>
-      </div>
+<div style={{border:"1px solid gray",padding:"20px",margin:"20px"}}>
 
-      <h3>Total: $15</h3>
+<img src="https://i.imgur.com/1.jpg" width="120"/>
 
-      <button style={{ margin: "10px" }}>Checkout</button>
-      <button>Continue Shopping</button>
-    </div>
-  );
+<h3>Snake Plant</h3>
+
+<p>Unit Price: $15</p>
+
+<p>Total: $15</p>
+
+<button>+</button>
+
+<button>-</button>
+
+<button>Delete</button>
+
+</div>
+
+<h3>Total Cart Amount: $15</h3>
+
+<button>Checkout</button>
+
+<button>Continue Shopping</button>
+
+</div>
+
+)
+
 }
 
-export default CartItem;
+export default CartItem
